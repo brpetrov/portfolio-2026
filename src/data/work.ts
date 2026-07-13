@@ -173,23 +173,32 @@ export const builds: readonly Build[] = [
   },
 ] as const;
 
-export const earlier = [
+export const moreBuilds: readonly Build[] = [
+  {
+    name: "Krustinka Kids",
+    kicker: "Client website · kids' play centre",
+    text: "Bright, playful site for a Bulgarian children's play centre — games, birthday parties, menu, FAQs and gallery, built to be instantly readable for busy parents.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    images: [{ src: "images/krustinka/hero.jpg", alt: "Krustinka Kids — colourful hero with playful navigation" }],
+    repoUrl: "https://github.com/brpetrov/children-playground-Bulgaria",
+    liveUrl: "https://krystnikytkids.netlify.app",
+  },
   {
     name: "Brainwave",
-    text: "AI-chat landing page with parallax design — React + Tailwind.",
-    liveUrl: "https://brainwave-boyan-petrov.netlify.app",
+    kicker: "Learning build · landing page",
+    text: "AI-chat landing page with a parallax hero, bento feature grid and a polished dark design system — built to sharpen modern React and Tailwind patterns.",
+    tech: ["React", "Tailwind CSS", "Vite"],
+    images: [{ src: "images/brainwave/hero.jpg", alt: "Brainwave — dark AI landing page hero" }],
     repoUrl: "https://github.com/brpetrov/brainwave",
+    liveUrl: "https://brainwave-boyan-petrov.netlify.app",
   },
   {
     name: "iPhone 15 Pro page",
-    text: "Apple-style product page — React, GSAP animations, Three.js 3D model.",
-    liveUrl: "https://boyan-petrov-iphone15-clone.netlify.app",
+    kicker: "Learning build · product page",
+    text: "Apple-style product page for the iPhone 15 Pro — GSAP scroll animations, a video carousel and an interactive 3D model rendered with Three.js.",
+    tech: ["React", "GSAP", "Three.js"],
+    images: [{ src: "images/iphone-15/hero.jpg", alt: "iPhone 15 Pro page — titanium hero with 3D phone model" }],
     repoUrl: "https://github.com/brpetrov/apple_website",
-  },
-  {
-    name: "Krustinka Kids",
-    text: "Playful site for a Bulgarian children's playground — HTML & CSS.",
-    liveUrl: "https://krystnikytkids.netlify.app",
-    repoUrl: "https://github.com/brpetrov/children-playground-Bulgaria",
+    liveUrl: "https://boyan-petrov-iphone15-clone.netlify.app",
   },
 ] as const;
