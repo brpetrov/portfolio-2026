@@ -89,7 +89,7 @@ export const builds: readonly Build[] = [
   },
   {
     name: "Dun Bun Finance",
-    kicker: "Desktop & mobile app · personal finance",
+    kicker: "Personal project · finance app",
     text: "Personal finance app: expenses grouped by type, percentage-based savings pots, a debt-payoff planner and Gemini-powered bank-statement analysis. Firebase auth + Firestore, biometric login with Windows Hello or fingerprint, light & dark themes.",
     tech: ["Flutter", "Dart", "Firebase", "Gemini AI"],
     images: [
@@ -103,7 +103,7 @@ export const builds: readonly Build[] = [
   },
   {
     name: "LeanStreak",
-    kicker: "Web & mobile app · health",
+    kicker: "Personal project · health app",
     text: "Habit and calorie-consistency tracker: a personalised calorie plan from onboarding (BMR/TDEE), meal logging by text or voice with Gemini AI calorie estimation, and green/yellow/red adherence days with weekly reviews. Riverpod + GoRouter architecture on Firebase.",
     tech: ["Flutter", "Riverpod", "Firebase", "Gemini AI"],
     images: [
@@ -118,7 +118,7 @@ export const builds: readonly Build[] = [
   },
   {
     name: "GlowGuard",
-    kicker: "Browser extension · Chrome, Edge & Firefox",
+    kicker: "Personal project · browser extension",
     text: "A lightweight page dimmer: overlay-based dimming that never breaks layouts, four blue-light presets, an automatic day/evening/night mode, anti-flash protection injected before pages render, and keyboard shortcuts throughout.",
     tech: ["TypeScript", "WebExtension APIs", "Manifest V3"],
     images: [

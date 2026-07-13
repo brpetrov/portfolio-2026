@@ -7,7 +7,7 @@ export const experience = [
     points: [
       "Develop the Collective suite of waste-management software used daily by 100+ UK councils and 3,500+ frontline crews.",
       "Since 2024: core member of the Collective Mobile team — Flutter for Android & iOS with native Swift and Kotlin scanner integration, taken from early development through to release.",
-      "Extensive performance optimisation and security hardening ahead of the mobile release; now in final testing and active maintenance.",
+      "Optimised the app's performance — moved heavy work off the UI thread onto background isolates, cut unnecessary widget rebuilds and refactored shared UI into reusable widgets — and hardened security ahead of release.",
     ],
   },
   {
