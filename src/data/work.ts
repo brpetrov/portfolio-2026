@@ -1,8 +1,9 @@
 // Selected work. The Bartec feature block is professional (proprietary, no
-// public demo). `builds` are public projects rendered as cards:
-//  - images: 0 images → styled placeholder cover, 1 → static image,
-//    2+ → horizontal scroll-snap gallery.
-//  - liveUrl / repoUrl are optional — links render only when present.
+// public demo). `builds` are project cards:
+//  - images live in public/images/<project>/ — one folder per project.
+//  - 0 images → styled placeholder cover, 1 → static image, 2+ → thumbnail gallery.
+//  - repoUrl / liveUrl are optional; with neither, the card shows
+//    "Private client project" instead of links.
 // `earlier` renders as a compact text-only list.
 
 export const bartec = {
@@ -49,9 +50,10 @@ export const builds: readonly Build[] = [
     text: "A booking-first barbershop site: dark, photography-led, with an interactive slot-picker that respects opening hours. Static output, zero framework JS shipped — built for instant load on 4G.",
     tech: ["Astro", "Tailwind CSS", "TypeScript"],
     images: [
-      { src: "images/fade-room.jpg", alt: "The Fade Room — dark hero with gold accents" },
-      { src: "images/fade-room-2.jpg", alt: "The Fade Room — photography gallery" },
-      { src: "images/fade-room-3.jpg", alt: "The Fade Room — interactive booking slot-picker" },
+      { src: "images/fade-room/hero.jpg", alt: "The Fade Room — dark hero with gold accents" },
+      { src: "images/fade-room/gallery.jpg", alt: "The Fade Room — photography gallery" },
+      { src: "images/fade-room/booking.jpg", alt: "The Fade Room — interactive booking slot-picker" },
+      { src: "images/fade-room/team.jpg", alt: "The Fade Room — meet the team cards" },
     ],
     repoUrl: "https://github.com/brpetrov/fade-room",
     liveUrl: "",
@@ -62,11 +64,27 @@ export const builds: readonly Build[] = [
     text: "A call-first site for a plumbing & heating firm: trust strip, plain-English services, live service-area map and a callback form. Every design decision serves one job — making the phone ring.",
     tech: ["Astro", "Tailwind CSS", "TypeScript"],
     images: [
-      { src: "images/marsden.jpg", alt: "Marsden & Son — navy and amber hero" },
-      { src: "images/marsden-2.jpg", alt: "Marsden & Son — services grid" },
-      { src: "images/marsden-3.jpg", alt: "Marsden & Son — contact section with callback form" },
+      { src: "images/marsden/hero.jpg", alt: "Marsden & Son — navy and amber hero" },
+      { src: "images/marsden/services.jpg", alt: "Marsden & Son — services grid" },
+      { src: "images/marsden/service-area.jpg", alt: "Marsden & Son — service area with live map" },
+      { src: "images/marsden/contact.jpg", alt: "Marsden & Son — contact section with callback form" },
     ],
     repoUrl: "https://github.com/brpetrov/marsden-plumbing",
+    liveUrl: "",
+  },
+  {
+    name: "Emlaak — Property Marketplace",
+    kicker: "Web platform · real estate",
+    text: "Full-stack property marketplace for the Algerian market: buy, rent and sale listings, agent profiles, listing plans and multilingual UI — an ASP.NET Core API behind a Blazor front end with a SQL database.",
+    tech: ["Blazor", "ASP.NET Core", "SQL Server"],
+    images: [
+      { src: "images/algeria-property-marketplace/site-1.jpg", alt: "Emlaak — homepage hero with property search" },
+      { src: "images/algeria-property-marketplace/site-2.jpg", alt: "Emlaak — property marketplace screenshot" },
+      { src: "images/algeria-property-marketplace/site-3.jpg", alt: "Emlaak — listings view" },
+      { src: "images/algeria-property-marketplace/site-4.jpg", alt: "Emlaak — property details" },
+      { src: "images/algeria-property-marketplace/site-5.jpg", alt: "Emlaak — agents and plans" },
+    ],
+    repoUrl: "",
     liveUrl: "",
   },
   {
@@ -74,7 +92,12 @@ export const builds: readonly Build[] = [
     kicker: "Desktop & mobile app · personal finance",
     text: "Personal finance app: expenses grouped by type, percentage-based savings pots, a debt-payoff planner and Gemini-powered bank-statement analysis. Firebase auth + Firestore, biometric login with Windows Hello or fingerprint, light & dark themes.",
     tech: ["Flutter", "Dart", "Firebase", "Gemini AI"],
-    images: [],
+    images: [
+      { src: "images/dun-bun-finance/app-1.jpg", alt: "Dun Bun Finance — dashboard with grouped expenses" },
+      { src: "images/dun-bun-finance/app-2.jpg", alt: "Dun Bun Finance — app screenshot" },
+      { src: "images/dun-bun-finance/app-3.jpg", alt: "Dun Bun Finance — app screenshot" },
+      { src: "images/dun-bun-finance/app-4.jpg", alt: "Dun Bun Finance — app screenshot" },
+    ],
     repoUrl: "https://github.com/brpetrov/dun_bun_finance",
     liveUrl: "",
   },
@@ -83,7 +106,13 @@ export const builds: readonly Build[] = [
     kicker: "Web & mobile app · health",
     text: "Habit and calorie-consistency tracker: a personalised calorie plan from onboarding (BMR/TDEE), meal logging by text or voice with Gemini AI calorie estimation, and green/yellow/red adherence days with weekly reviews. Riverpod + GoRouter architecture on Firebase.",
     tech: ["Flutter", "Riverpod", "Firebase", "Gemini AI"],
-    images: [{ src: "images/leanstreak.jpg", alt: "LeanStreak — sign-in screen of the live web app" }],
+    images: [
+      { src: "images/lean-streak/app-1.jpg", alt: "LeanStreak — app screenshot" },
+      { src: "images/lean-streak/app-2.jpg", alt: "LeanStreak — app screenshot" },
+      { src: "images/lean-streak/app-3.jpg", alt: "LeanStreak — app screenshot" },
+      { src: "images/lean-streak/app-4.jpg", alt: "LeanStreak — app screenshot" },
+      { src: "images/lean-streak/sign-in.jpg", alt: "LeanStreak — sign-in screen" },
+    ],
     repoUrl: "https://github.com/brpetrov/lean_streak",
     liveUrl: "https://lean-streak-project.web.app/",
   },
@@ -92,7 +121,12 @@ export const builds: readonly Build[] = [
     kicker: "Browser extension · Chrome, Edge & Firefox",
     text: "A lightweight page dimmer: overlay-based dimming that never breaks layouts, four blue-light presets, an automatic day/evening/night mode, anti-flash protection injected before pages render, and keyboard shortcuts throughout.",
     tech: ["TypeScript", "WebExtension APIs", "Manifest V3"],
-    images: [{ src: "images/glowguard.jpg", alt: "GlowGuard — extension popup with dim level and blue-light presets" }],
+    images: [
+      { src: "images/glow-guard/popup.jpg", alt: "GlowGuard — extension popup with dim level and blue-light presets" },
+      { src: "images/glow-guard/shot-1.jpg", alt: "GlowGuard — screenshot" },
+      { src: "images/glow-guard/shot-2.jpg", alt: "GlowGuard — screenshot" },
+      { src: "images/glow-guard/shot-3.jpg", alt: "GlowGuard — screenshot" },
+    ],
     repoUrl: "https://github.com/brpetrov/GlowGuard",
     liveUrl: "",
   },
@@ -102,11 +136,40 @@ export const builds: readonly Build[] = [
     text: "Marketing and e-commerce site for a supplement brand — product showcase, ingredient breakdown, bundle pricing, testimonial carousel and customer reviews, in Bulgarian.",
     tech: ["C#", "JavaScript", "SCSS"],
     images: [
-      { src: "images/alphamode.jpg", alt: "Alpha Mode — product hero" },
-      { src: "images/alphamode-2.jpg", alt: "Alpha Mode — product detail section" },
+      { src: "images/alphamode/hero.jpg", alt: "Alpha Mode — product hero" },
+      { src: "images/alphamode/product.jpg", alt: "Alpha Mode — product studio shot" },
+      { src: "images/alphamode/details.jpg", alt: "Alpha Mode — product detail section" },
     ],
     repoUrl: "https://github.com/brpetrov/AlphaMode",
     liveUrl: "https://alphamode.netlify.app/",
+  },
+  {
+    name: "Denis Milkov Coaching",
+    kicker: "Client website · personal training",
+    text: "Photography-led site for a Bulgarian personal trainer — training plans, online coaching and contact, built to turn Instagram followers into coaching clients.",
+    tech: ["C#", "ASP.NET Core", "SCSS"],
+    images: [
+      { src: "images/denis-milkov/site-1.jpg", alt: "Denis Milkov — photography-led hero" },
+      { src: "images/denis-milkov/site-2.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-3.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-4.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-5.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-6.jpg", alt: "Denis Milkov — site screenshot" },
+    ],
+    repoUrl: "",
+    liveUrl: "",
+  },
+  {
+    name: "Divine",
+    kicker: "Client website · wine brand",
+    text: "Dramatic dark landing page for a Bulgarian wine brand — product story, tasting notes and ordering, designed to feel like the label it sells.",
+    tech: ["C#", "ASP.NET Core", "SCSS"],
+    images: [
+      { src: "images/divine/site-1.jpg", alt: "Divine — dark hero with order call-to-action" },
+      { src: "images/divine/site-2.jpg", alt: "Divine — product story section" },
+    ],
+    repoUrl: "",
+    liveUrl: "",
   },
 ] as const;
 

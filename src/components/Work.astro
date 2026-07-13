@@ -38,22 +38,39 @@ import SectionLabel from "./SectionLabel.astro";
       builds.map((build) => (
         <article class="group flex flex-col overflow-hidden rounded-card border border-line bg-white transition hover:border-ink-700/40">
           {build.images.length > 1 ? (
-            <div class="relative border-b border-line">
-              <div class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
-                {build.images.map((img) => (
-                  <img
-                    src={withBase(img.src)}
-                    alt={img.alt}
-                    width="1280"
-                    height="800"
-                    loading="lazy"
-                    class="aspect-[16/10] w-full shrink-0 snap-center object-cover object-top"
-                  />
+            <div class="border-b border-line" data-gallery>
+              <img
+                data-gallery-main
+                src={withBase(build.images[0].src)}
+                alt={build.images[0].alt}
+                width="1280"
+                height="800"
+                loading="lazy"
+                class="aspect-[16/10] w-full object-cover object-top"
+              />
+              <div class="flex gap-2 border-t border-line bg-paper p-2">
+                {build.images.map((img, i) => (
+                  <button
+                    type="button"
+                    data-src={withBase(img.src)}
+                    data-alt={img.alt}
+                    aria-label={`Show screenshot: ${img.alt}`}
+                    class:list={[
+                      "overflow-hidden rounded-md border transition",
+                      i === 0 ? "border-accent-500" : "border-line opacity-60 hover:opacity-100",
+                    ]}
+                  >
+                    <img
+                      src={withBase(img.src)}
+                      alt=""
+                      width="120"
+                      height="75"
+                      loading="lazy"
+                      class="aspect-[16/10] h-12 w-auto object-cover object-top sm:h-14"
+                    />
+                  </button>
                 ))}
               </div>
-              <span class="pointer-events-none absolute bottom-3 right-3 rounded-full bg-ink-950/70 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
-                {build.images.length} shots · scroll →
-              </span>
             </div>
           ) : build.images.length === 1 ? (
             <img
@@ -89,6 +106,12 @@ import SectionLabel from "./SectionLabel.astro";
                   <Icon name="arrow-up-right" size={13} class="text-muted" />
                 </a>
               )}
+              {!build.repoUrl && !build.liveUrl && (
+                <span class="inline-flex items-center gap-1.5 font-medium text-muted">
+                  <Icon name="lock" size={14} />
+                  Private client project
+                </span>
+              )}
             </div>
           </div>
         </article>
@@ -121,3 +144,25 @@ import SectionLabel from "./SectionLabel.astro";
     </div>
   </div>
 </section>
+
+<script>
+  // Thumbnail gallery: clicking a thumb swaps the main image.
+  document.querySelectorAll<HTMLElement>("[data-gallery]").forEach((gallery) => {
+    const main = gallery.querySelector<HTMLImageElement>("[data-gallery-main]");
+    const thumbs = Array.from(gallery.querySelectorAll<HTMLButtonElement>("button[data-src]"));
+    if (!main) return;
+
+    gallery.addEventListener("click", (event) => {
+      const btn = (event.target as HTMLElement).closest<HTMLButtonElement>("button[data-src]");
+      if (!btn || !gallery.contains(btn)) return;
+      main.src = btn.dataset.src ?? main.src;
+      main.alt = btn.dataset.alt ?? main.alt;
+      for (const thumb of thumbs) {
+        const active = thumb === btn;
+        thumb.classList.toggle("border-accent-500", active);
+        thumb.classList.toggle("border-line", !active);
+        thumb.classList.toggle("opacity-60", !active);
+      }
+    });
+  });
+</script>
