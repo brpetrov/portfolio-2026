@@ -6,7 +6,7 @@ export const profile = {
   location: "Leeds, UK",
   email: "brpetrov@outlook.com",
   github: "https://github.com/brpetrov",
-  headline: "I build web & mobile software used daily by 100+ UK councils.",
+  headline: "I help build web & mobile software used daily by 100+ UK councils.",
   intro:
     "Full-stack developer with 7+ years across C#/.NET, JavaScript and Flutter. At Bartec Municipal Technologies I work on the Collective suite — council web portals, a live fleet-operations platform, and an offline-first mobile app used by waste collection crews across the UK.",
   stats: [
@@ -17,6 +17,6 @@ export const profile = {
   seo: {
     title: "Boyan Petrov — Full-Stack Software Developer",
     description:
-      "Full-stack developer in Leeds, UK. C#/.NET, JavaScript, Flutter. Building web and mobile software used daily by 100+ UK councils.",
+      "Full-stack developer in Leeds, UK. C#/.NET, JavaScript, Flutter. Helping build web and mobile software used daily by 100+ UK councils.",
   },
 } as const;
