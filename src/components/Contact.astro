@@ -1,0 +1,37 @@
+---
+import { profile } from "../data/profile";
+import Icon from "./Icon.astro";
+import SectionLabel from "./SectionLabel.astro";
+---
+
+<section id="contact" class="mx-auto max-w-5xl scroll-mt-20 px-5 pb-24 sm:px-8 sm:pb-32">
+  <SectionLabel number="04" title="Contact" />
+
+  <div class="mt-12">
+    <h2 class="font-display text-5xl leading-[1.05] text-ink-950 sm:text-7xl">
+      Let's build <em class="text-accent-600">something.</em>
+    </h2>
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink-700">
+      The quickest way to reach me is email — I read everything and reply fast.
+    </p>
+
+    <div class="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+      <a
+        href={`mailto:${profile.email}`}
+        class="inline-flex items-center gap-2.5 text-xl font-semibold text-ink-950 underline decoration-accent-500 decoration-2 underline-offset-8 transition hover:text-accent-600"
+      >
+        {profile.email}
+      </a>
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-lg font-medium text-ink-700 transition hover:text-ink-950"
+      >
+        <Icon name="github" size={18} />
+        github.com/brpetrov
+        <Icon name="arrow-up-right" size={14} class="text-muted" />
+      </a>
+    </div>
+  </div>
+</section>

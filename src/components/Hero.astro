@@ -1,0 +1,51 @@
+---
+import { profile } from "../data/profile";
+import Icon from "./Icon.astro";
+---
+
+<section id="top" class="mx-auto max-w-5xl px-5 pb-20 pt-20 sm:px-8 sm:pb-28 sm:pt-32">
+  <p class="flex items-center gap-2 text-sm font-medium text-muted">
+    <Icon name="map-pin" size={15} class="text-accent-600" />
+    {profile.role} · {profile.location}
+  </p>
+
+  <h1 class="mt-6 max-w-4xl font-display text-5xl leading-[1.04] text-ink-950 sm:text-7xl">
+    I build web &amp; mobile software used <em class="text-accent-600">daily</em> by 100+ UK councils.
+  </h1>
+
+  <p class="mt-8 max-w-2xl text-lg leading-relaxed text-ink-700">
+    {profile.intro}
+  </p>
+
+  <div class="mt-10 flex flex-wrap items-center gap-4">
+    <a
+      href={`mailto:${profile.email}`}
+      class="inline-flex items-center gap-2 rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-paper transition hover:bg-ink-800"
+    >
+      <Icon name="mail" size={16} />
+      {profile.email}
+    </a>
+    <a
+      href={profile.github}
+      target="_blank"
+      rel="noopener"
+      class="inline-flex items-center gap-2 rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink-950 transition hover:border-ink-700"
+    >
+      <Icon name="github" size={16} />
+      GitHub
+      <Icon name="arrow-up-right" size={14} class="text-muted" />
+    </a>
+  </div>
+
+  <dl class="mt-16 grid max-w-2xl grid-cols-3 gap-6 border-t border-line pt-8">
+    {
+      profile.stats.map((stat) => (
+        <div>
+          <dt class="sr-only">{stat.label}</dt>
+          <dd class="font-display text-3xl text-ink-950 sm:text-4xl">{stat.value}</dd>
+          <p class="mt-1 text-sm text-muted">{stat.label}</p>
+        </div>
+      ))
+    }
+  </dl>
+</section>

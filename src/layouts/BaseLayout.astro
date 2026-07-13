@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+import { profile } from "../data/profile";
+import { withBase } from "../lib/url";
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.role,
+  email: `mailto:${profile.email}`,
+  url: canonical,
+  sameAs: [profile.github],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Leeds",
+    addressCountry: "GB",
+  },
+};
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={withBase("favicon.svg")} />
+    <link rel="canonical" href={canonical} />
+    <title>{profile.seo.title}</title>
+    <meta name="description" content={profile.seo.description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={profile.seo.title} />
+    <meta property="og:description" content={profile.seo.description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
