@@ -28,7 +28,11 @@ const sections = [
 </nav>
 
 <script>
-  // Scroll-spy: highlight the nav link + dot for the section in view.
+  // Scroll-spy: the active section is the last one whose top has passed a
+  // line 35% down the viewport — with explicit overrides at the very top
+  // and bottom of the page so the first/last dots always light correctly.
+  const ids = ["top", "work", "side-projects", "experience", "skills", "contact"];
+
   const setActive = (id: string) => {
     document.querySelectorAll<HTMLElement>(".nav-link[data-spy]").forEach((link) => {
       link.classList.toggle("active", link.dataset.spy === id);
@@ -38,18 +42,34 @@ const sections = [
     });
   };
 
-  const ids = ["top", "work", "side-projects", "experience", "skills", "contact"];
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) setActive(entry.target.id);
+  const update = () => {
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    let current = ids[0];
+    if (atBottom) {
+      current = ids[ids.length - 1];
+    } else if (window.scrollY > 50) {
+      const line = window.innerHeight * 0.35;
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
       }
+    }
+    setActive(current);
+  };
+
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        update();
+        ticking = false;
+      });
     },
-    // A horizontal band ~40% down the viewport decides which section is "current".
-    { rootMargin: "-35% 0px -55% 0px" }
+    { passive: true }
   );
-  ids.forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
+  window.addEventListener("resize", update, { passive: true });
+  update();
 </script>
