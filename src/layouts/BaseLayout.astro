@@ -28,10 +28,10 @@ const jsonLd = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>
       // Set the theme before first paint to avoid a flash of the wrong mode.
+      // Dark is the default; the header toggle stores an explicit choice.
       (() => {
         const stored = localStorage.getItem("theme");
-        const dark = stored ? stored === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.classList.toggle("dark", stored !== "light");
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href={withBase("favicon.svg")} />
