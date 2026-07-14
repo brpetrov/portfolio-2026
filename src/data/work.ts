@@ -56,7 +56,7 @@ export const builds: readonly Build[] = [
       { src: "images/fade-room/team.jpg", alt: "The Fade Room — meet the team cards" },
     ],
     repoUrl: "https://github.com/brpetrov/fade-room",
-    liveUrl: "",
+    liveUrl: "https://brpetrov.github.io/fade-room/",
   },
   {
     name: "Marsden & Son",
@@ -70,12 +70,12 @@ export const builds: readonly Build[] = [
       { src: "images/marsden/contact.jpg", alt: "Marsden & Son — contact section with callback form" },
     ],
     repoUrl: "https://github.com/brpetrov/marsden-plumbing",
-    liveUrl: "",
+    liveUrl: "https://brpetrov.github.io/marsden-plumbing/",
   },
   {
     name: "Emlaak — Property Marketplace",
     kicker: "Web platform · real estate",
-    text: "Full-stack property marketplace for the Algerian market: buy, rent and sale listings, agent profiles, listing plans and multilingual UI — an ASP.NET Core API behind a Blazor front end with a SQL database.",
+    text: "A Rightmove-style property portal built for Algeria — a market that had no listings site at the time. Buy, rent and sale listings, agent profiles, listing plans and multilingual UI: an ASP.NET Core API behind a Blazor front end with a SQL database, built end-to-end, though the venture never went to market.",
     tech: ["Blazor", "ASP.NET Core", "SQL Server"],
     images: [
       { src: "images/algeria-property-marketplace/site-1.jpg", alt: "Emlaak — homepage hero with property search" },
@@ -90,7 +90,7 @@ export const builds: readonly Build[] = [
   {
     name: "Alpha Mode",
     kicker: "Client website · e-commerce",
-    text: "Marketing and e-commerce site for a supplement brand — product showcase, ingredient breakdown, bundle pricing, testimonial carousel and customer reviews, in Bulgarian.",
+    text: "Marketing and e-commerce site for a Bulgarian supplement brand selling and delivering nationwide — product showcase, ingredient breakdown, bundle pricing, testimonial carousel and customer reviews.",
     tech: ["C#", "JavaScript", "SCSS"],
     images: [
       { src: "images/alphamode/hero.jpg", alt: "Alpha Mode — product hero" },
@@ -103,7 +103,7 @@ export const builds: readonly Build[] = [
   {
     name: "Denis Milkov Coaching",
     kicker: "Client website · personal training",
-    text: "Photography-led site for a Bulgarian personal trainer — training plans, online coaching and contact, built to turn Instagram followers into coaching clients.",
+    text: "Photography-led site for a Bulgarian personal trainer with an active coaching client base — training plans, online coaching and contact, built to turn Instagram followers into paying clients.",
     tech: ["C#", "ASP.NET Core", "SCSS"],
     images: [
       { src: "images/denis-milkov/site-1.jpg", alt: "Denis Milkov — photography-led hero" },
@@ -131,7 +131,7 @@ export const builds: readonly Build[] = [
   {
     name: "Krustinka Kids",
     kicker: "Client website · kids' play centre",
-    text: "Bright, playful site for a Bulgarian children's play centre — games, birthday parties, menu, FAQs and gallery, built to be instantly readable for busy parents.",
+    text: "Website for Krustinka, the most popular children's play centre in Ruse, Bulgaria — games, birthday parties, menu, FAQs and gallery, built to be instantly readable for busy parents.",
     tech: ["HTML", "CSS", "JavaScript"],
     images: [{ src: "images/krustinka/hero.jpg", alt: "Krustinka Kids — colourful hero with playful navigation" }],
     repoUrl: "https://github.com/brpetrov/children-playground-Bulgaria",
@@ -161,7 +161,7 @@ export const sideProjects: readonly Build[] = [
   {
     name: "Dun Bun Finance",
     kicker: "Personal project · finance app",
-    text: "Personal finance app: expenses grouped by type, percentage-based savings pots, a debt-payoff planner and Gemini-powered bank-statement analysis. Firebase auth + Firestore, biometric login with Windows Hello or fingerprint, light & dark themes.",
+    text: "Personal finance app I built for myself and use to run my own money every month: expenses grouped by type, percentage-based savings pots, a debt-payoff planner and Gemini-powered bank-statement analysis. Firebase auth + Firestore, biometric login with Windows Hello or fingerprint, light & dark themes.",
     tech: ["Flutter", "Dart", "Firebase", "Gemini AI"],
     images: [
       { src: "images/dun-bun-finance/hero.jpg", alt: "Dun Bun Finance — brand hero with dashboard and savings pots" },
@@ -174,7 +174,7 @@ export const sideProjects: readonly Build[] = [
   {
     name: "LeanStreak",
     kicker: "Personal project · health app",
-    text: "Habit and calorie-consistency tracker: a personalised calorie plan from onboarding (BMR/TDEE), meal logging by text or voice with Gemini AI calorie estimation, and green/yellow/red adherence days with weekly reviews. Riverpod + GoRouter architecture on Firebase.",
+    text: "Habit and calorie-consistency tracker I use every day to keep my own weight on track: a personalised calorie plan from onboarding (BMR/TDEE), meal logging by text or voice with Gemini AI calorie estimation, and green/yellow/red adherence days with weekly reviews. Riverpod + GoRouter architecture on Firebase.",
     tech: ["Flutter", "Riverpod", "Firebase", "Gemini AI"],
     images: [
       { src: "images/lean-streak/hero.jpg", alt: "LeanStreak — brand hero with light and dark phones" },
@@ -184,7 +184,7 @@ export const sideProjects: readonly Build[] = [
       { src: "images/lean-streak/app-4.jpg", alt: "LeanStreak — real app screen: progress calendar" },
     ],
     repoUrl: "https://github.com/brpetrov/lean_streak",
-    liveUrl: "https://lean-streak-project.web.app/",
+    liveUrl: "",
   },
   {
     name: "GlowGuard",
