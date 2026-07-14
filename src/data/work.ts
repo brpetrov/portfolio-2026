@@ -146,15 +146,6 @@ export const builds: readonly Build[] = [
     repoUrl: "https://github.com/brpetrov/brainwave",
     liveUrl: "https://brainwave-boyan-petrov.netlify.app",
   },
-  {
-    name: "iPhone 15 Pro page",
-    kicker: "Learning build · product page",
-    text: "Apple-style product page for the iPhone 15 Pro — GSAP scroll animations, a video carousel and an interactive 3D model rendered with Three.js.",
-    tech: ["React", "GSAP", "Three.js"],
-    images: [{ src: "images/iphone-15/hero.jpg", alt: "iPhone 15 Pro page — titanium hero with 3D phone model" }],
-    repoUrl: "https://github.com/brpetrov/apple_website",
-    liveUrl: "https://boyan-petrov-iphone15-clone.netlify.app",
-  },
 ] as const;
 
 export const sideProjects: readonly Build[] = [
@@ -200,5 +191,14 @@ export const sideProjects: readonly Build[] = [
     ],
     repoUrl: "https://github.com/brpetrov/GlowGuard",
     liveUrl: "",
+  },
+  {
+    name: "iPhone 15 Pro page",
+    kicker: "Personal project · learning build",
+    text: "Apple-style product page for the iPhone 15 Pro — GSAP scroll animations, a video carousel and an interactive 3D model rendered with Three.js.",
+    tech: ["React", "GSAP", "Three.js"],
+    images: [{ src: "images/iphone-15/hero.jpg", alt: "iPhone 15 Pro page — titanium hero with 3D phone model" }],
+    repoUrl: "https://github.com/brpetrov/apple_website",
+    liveUrl: "https://boyan-petrov-iphone15-clone.netlify.app",
   },
 ] as const;

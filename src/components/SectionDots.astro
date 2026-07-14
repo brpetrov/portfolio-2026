@@ -1,0 +1,55 @@
+---
+// Right-side scroll minimap: one dot per section, connected by a hairline,
+// with hover labels. The script also drives the header nav's active state.
+const sections = [
+  { id: "top", label: "Home" },
+  { id: "work", label: "Selected work" },
+  { id: "side-projects", label: "Side projects" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];
+---
+
+<nav aria-label="Section overview" class="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 lg:block">
+  <div class="relative flex flex-col items-center gap-5">
+    <span class="absolute bottom-2 top-2 left-1/2 w-px -translate-x-1/2 bg-line" aria-hidden="true"></span>
+    {
+      sections.map((section) => (
+        <a href={`#${section.id}`} data-spy-dot={section.id} class="spy-dot group relative z-10 p-0.5" aria-label={section.label}>
+          <span class="block h-2.5 w-2.5 rounded-full border-2 border-muted/60 bg-paper group-hover:border-ink-950" />
+          <span class="pointer-events-none absolute right-7 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md border border-line bg-card px-2.5 py-1 text-xs font-medium text-ink-950 opacity-0 shadow-sm transition-opacity duration-150 group-hover:opacity-100">
+            {section.label}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<script>
+  // Scroll-spy: highlight the nav link + dot for the section in view.
+  const setActive = (id: string) => {
+    document.querySelectorAll<HTMLElement>(".nav-link[data-spy]").forEach((link) => {
+      link.classList.toggle("active", link.dataset.spy === id);
+    });
+    document.querySelectorAll<HTMLElement>("[data-spy-dot]").forEach((dot) => {
+      dot.classList.toggle("active", dot.dataset.spyDot === id);
+    });
+  };
+
+  const ids = ["top", "work", "side-projects", "experience", "skills", "contact"];
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      }
+    },
+    // A horizontal band ~40% down the viewport decides which section is "current".
+    { rootMargin: "-35% 0px -55% 0px" }
+  );
+  ids.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
