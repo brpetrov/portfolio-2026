@@ -42,10 +42,11 @@ export const skills: readonly {
     blurb: "From design systems to animation — whatever the UI needs.",
     items: [
       { name: "JavaScript / TypeScript", core: true },
+      { name: "Vue", core: true },
       { name: "Tailwind CSS", core: true },
-      { name: "Vue" },
       { name: "React" },
       { name: "Astro" },
+      { name: "Bootstrap" },
       { name: "Sass" },
       { name: "GSAP" },
       { name: "Three.js" },
