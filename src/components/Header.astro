@@ -1,18 +1,33 @@
 ---
 import { profile } from "../data/profile";
 import Icon from "./Icon.astro";
+
+const navItems = [
+  { id: "work", label: "Work" },
+  { id: "side-projects", label: "Side projects" },
+  { id: "experience", label: "Experience" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];
 ---
 
-<header class="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+<!-- Solid background on mobile (backdrop-blur judders on mobile scroll); blur on sm+. -->
+<header class="sticky top-0 z-50 transform-gpu border-b border-line bg-paper sm:bg-paper/90 sm:backdrop-blur">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
     <a href="#top" class="text-lg font-semibold tracking-tight text-ink-950">Boyan Petrov</a>
 
     <nav class="flex items-center gap-5 text-sm font-medium text-ink-700 sm:gap-6">
-      <a href="#work" data-spy="work" class="nav-link hidden sm:inline">Work</a>
-      <a href="#side-projects" data-spy="side-projects" class="nav-link hidden md:inline">Side projects</a>
-      <a href="#experience" data-spy="experience" class="nav-link hidden sm:inline">Experience</a>
-      <a href="#skills" data-spy="skills" class="nav-link hidden sm:inline">Skills</a>
-      <a href="#contact" data-spy="contact" class="nav-link">Contact</a>
+      {
+        navItems.map((item) => (
+          <a
+            href={`#${item.id}`}
+            data-spy={item.id}
+            class:list={["nav-link hidden", item.id === "side-projects" ? "md:inline" : "sm:inline"]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
       <a
         href={profile.github}
         target="_blank"
@@ -40,13 +55,58 @@ import Icon from "./Icon.astro";
         <span class="dark:hidden"><Icon name="moon" size={19} /></span>
         <span class="hidden dark:inline"><Icon name="sun" size={19} /></span>
       </button>
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="cursor-pointer text-ink-700 transition hover:text-ink-950 sm:hidden"
+      >
+        <span id="menu-icon-open"><Icon name="menu" size={21} /></span>
+        <span id="menu-icon-close" class="hidden"><Icon name="x" size={21} /></span>
+      </button>
     </nav>
   </div>
+
+  <!-- Mobile menu -->
+  <nav id="mobile-menu" class="hidden border-t border-line bg-paper sm:hidden" aria-label="Mobile navigation">
+    <div class="mx-auto flex max-w-5xl flex-col px-5 py-2">
+      {
+        navItems.map((item) => (
+          <a href={`#${item.id}`} class="border-b border-line py-3 text-base font-medium text-ink-700 last:border-b-0 hover:text-ink-950">
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
 </header>
 
 <script>
   document.getElementById("theme-toggle")?.addEventListener("click", () => {
     const dark = document.documentElement.classList.toggle("dark");
     localStorage.setItem("theme", dark ? "dark" : "light");
+  });
+
+  // Mobile menu: hamburger toggles the panel; any link click closes it.
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  const setMenu = (open: boolean) => {
+    mobileMenu?.classList.toggle("hidden", !open);
+    iconOpen?.classList.toggle("hidden", open);
+    iconClose?.classList.toggle("hidden", !open);
+    menuToggle?.setAttribute("aria-expanded", String(open));
+    menuToggle?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+
+  menuToggle?.addEventListener("click", () => {
+    setMenu(mobileMenu?.classList.contains("hidden") ?? false);
+  });
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
   });
 </script>
