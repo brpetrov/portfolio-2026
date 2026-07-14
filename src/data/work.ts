@@ -1,10 +1,10 @@
 // Selected work. The Bartec feature block is professional (proprietary, no
-// public demo). `builds` are project cards:
+// public demo). `builds` are client/demo/learning cards; `sideProjects` are
+// the personal apps, rendered in their own section.
 //  - images live in public/images/<project>/ — one folder per project.
 //  - 0 images → styled placeholder cover, 1 → static image, 2+ → thumbnail gallery.
 //  - repoUrl / liveUrl are optional; with neither, the card shows
 //    "Private client project" instead of links.
-// `earlier` renders as a compact text-only list.
 
 export const bartec = {
   kicker: "Professional work · Bartec Municipal Technologies",
@@ -88,6 +88,77 @@ export const builds: readonly Build[] = [
     liveUrl: "",
   },
   {
+    name: "Alpha Mode",
+    kicker: "Client website · e-commerce",
+    text: "Marketing and e-commerce site for a supplement brand — product showcase, ingredient breakdown, bundle pricing, testimonial carousel and customer reviews, in Bulgarian.",
+    tech: ["C#", "JavaScript", "SCSS"],
+    images: [
+      { src: "images/alphamode/hero.jpg", alt: "Alpha Mode — product hero" },
+      { src: "images/alphamode/product.jpg", alt: "Alpha Mode — product studio shot" },
+      { src: "images/alphamode/details.jpg", alt: "Alpha Mode — product detail section" },
+    ],
+    repoUrl: "https://github.com/brpetrov/AlphaMode",
+    liveUrl: "https://alphamode.netlify.app/",
+  },
+  {
+    name: "Denis Milkov Coaching",
+    kicker: "Client website · personal training",
+    text: "Photography-led site for a Bulgarian personal trainer — training plans, online coaching and contact, built to turn Instagram followers into coaching clients.",
+    tech: ["C#", "ASP.NET Core", "SCSS"],
+    images: [
+      { src: "images/denis-milkov/site-1.jpg", alt: "Denis Milkov — photography-led hero" },
+      { src: "images/denis-milkov/site-2.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-3.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-4.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-5.jpg", alt: "Denis Milkov — site screenshot" },
+      { src: "images/denis-milkov/site-6.jpg", alt: "Denis Milkov — site screenshot" },
+    ],
+    repoUrl: "",
+    liveUrl: "",
+  },
+  {
+    name: "Divine",
+    kicker: "Client website · wine brand",
+    text: "Dramatic dark landing page for a Bulgarian wine brand — product story, tasting notes and ordering, designed to feel like the label it sells.",
+    tech: ["C#", "ASP.NET Core", "SCSS"],
+    images: [
+      { src: "images/divine/site-1.jpg", alt: "Divine — dark hero with order call-to-action" },
+      { src: "images/divine/site-2.jpg", alt: "Divine — product story section" },
+    ],
+    repoUrl: "",
+    liveUrl: "",
+  },
+  {
+    name: "Krustinka Kids",
+    kicker: "Client website · kids' play centre",
+    text: "Bright, playful site for a Bulgarian children's play centre — games, birthday parties, menu, FAQs and gallery, built to be instantly readable for busy parents.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    images: [{ src: "images/krustinka/hero.jpg", alt: "Krustinka Kids — colourful hero with playful navigation" }],
+    repoUrl: "https://github.com/brpetrov/children-playground-Bulgaria",
+    liveUrl: "https://krystnikytkids.netlify.app",
+  },
+  {
+    name: "Brainwave",
+    kicker: "Learning build · landing page",
+    text: "AI-chat landing page with a parallax hero, bento feature grid and a polished dark design system — built to sharpen modern React and Tailwind patterns.",
+    tech: ["React", "Tailwind CSS", "Vite"],
+    images: [{ src: "images/brainwave/hero.jpg", alt: "Brainwave — dark AI landing page hero" }],
+    repoUrl: "https://github.com/brpetrov/brainwave",
+    liveUrl: "https://brainwave-boyan-petrov.netlify.app",
+  },
+  {
+    name: "iPhone 15 Pro page",
+    kicker: "Learning build · product page",
+    text: "Apple-style product page for the iPhone 15 Pro — GSAP scroll animations, a video carousel and an interactive 3D model rendered with Three.js.",
+    tech: ["React", "GSAP", "Three.js"],
+    images: [{ src: "images/iphone-15/hero.jpg", alt: "iPhone 15 Pro page — titanium hero with 3D phone model" }],
+    repoUrl: "https://github.com/brpetrov/apple_website",
+    liveUrl: "https://boyan-petrov-iphone15-clone.netlify.app",
+  },
+] as const;
+
+export const sideProjects: readonly Build[] = [
+  {
     name: "Dun Bun Finance",
     kicker: "Personal project · finance app",
     text: "Personal finance app: expenses grouped by type, percentage-based savings pots, a debt-payoff planner and Gemini-powered bank-statement analysis. Firebase auth + Firestore, biometric login with Windows Hello or fingerprint, light & dark themes.",
@@ -129,76 +200,5 @@ export const builds: readonly Build[] = [
     ],
     repoUrl: "https://github.com/brpetrov/GlowGuard",
     liveUrl: "",
-  },
-  {
-    name: "Alpha Mode",
-    kicker: "Client website · e-commerce",
-    text: "Marketing and e-commerce site for a supplement brand — product showcase, ingredient breakdown, bundle pricing, testimonial carousel and customer reviews, in Bulgarian.",
-    tech: ["C#", "JavaScript", "SCSS"],
-    images: [
-      { src: "images/alphamode/hero.jpg", alt: "Alpha Mode — product hero" },
-      { src: "images/alphamode/product.jpg", alt: "Alpha Mode — product studio shot" },
-      { src: "images/alphamode/details.jpg", alt: "Alpha Mode — product detail section" },
-    ],
-    repoUrl: "https://github.com/brpetrov/AlphaMode",
-    liveUrl: "https://alphamode.netlify.app/",
-  },
-  {
-    name: "Denis Milkov Coaching",
-    kicker: "Client website · personal training",
-    text: "Photography-led site for a Bulgarian personal trainer — training plans, online coaching and contact, built to turn Instagram followers into coaching clients.",
-    tech: ["C#", "ASP.NET Core", "SCSS"],
-    images: [
-      { src: "images/denis-milkov/site-1.jpg", alt: "Denis Milkov — photography-led hero" },
-      { src: "images/denis-milkov/site-2.jpg", alt: "Denis Milkov — site screenshot" },
-      { src: "images/denis-milkov/site-3.jpg", alt: "Denis Milkov — site screenshot" },
-      { src: "images/denis-milkov/site-4.jpg", alt: "Denis Milkov — site screenshot" },
-      { src: "images/denis-milkov/site-5.jpg", alt: "Denis Milkov — site screenshot" },
-      { src: "images/denis-milkov/site-6.jpg", alt: "Denis Milkov — site screenshot" },
-    ],
-    repoUrl: "",
-    liveUrl: "",
-  },
-  {
-    name: "Divine",
-    kicker: "Client website · wine brand",
-    text: "Dramatic dark landing page for a Bulgarian wine brand — product story, tasting notes and ordering, designed to feel like the label it sells.",
-    tech: ["C#", "ASP.NET Core", "SCSS"],
-    images: [
-      { src: "images/divine/site-1.jpg", alt: "Divine — dark hero with order call-to-action" },
-      { src: "images/divine/site-2.jpg", alt: "Divine — product story section" },
-    ],
-    repoUrl: "",
-    liveUrl: "",
-  },
-] as const;
-
-export const moreBuilds: readonly Build[] = [
-  {
-    name: "Krustinka Kids",
-    kicker: "Client website · kids' play centre",
-    text: "Bright, playful site for a Bulgarian children's play centre — games, birthday parties, menu, FAQs and gallery, built to be instantly readable for busy parents.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    images: [{ src: "images/krustinka/hero.jpg", alt: "Krustinka Kids — colourful hero with playful navigation" }],
-    repoUrl: "https://github.com/brpetrov/children-playground-Bulgaria",
-    liveUrl: "https://krystnikytkids.netlify.app",
-  },
-  {
-    name: "Brainwave",
-    kicker: "Learning build · landing page",
-    text: "AI-chat landing page with a parallax hero, bento feature grid and a polished dark design system — built to sharpen modern React and Tailwind patterns.",
-    tech: ["React", "Tailwind CSS", "Vite"],
-    images: [{ src: "images/brainwave/hero.jpg", alt: "Brainwave — dark AI landing page hero" }],
-    repoUrl: "https://github.com/brpetrov/brainwave",
-    liveUrl: "https://brainwave-boyan-petrov.netlify.app",
-  },
-  {
-    name: "iPhone 15 Pro page",
-    kicker: "Learning build · product page",
-    text: "Apple-style product page for the iPhone 15 Pro — GSAP scroll animations, a video carousel and an interactive 3D model rendered with Three.js.",
-    tech: ["React", "GSAP", "Three.js"],
-    images: [{ src: "images/iphone-15/hero.jpg", alt: "iPhone 15 Pro page — titanium hero with 3D phone model" }],
-    repoUrl: "https://github.com/brpetrov/apple_website",
-    liveUrl: "https://boyan-petrov-iphone15-clone.netlify.app",
   },
 ] as const;

@@ -9,7 +9,7 @@ interface Props {
 const { build } = Astro.props;
 ---
 
-<article class="group flex flex-col overflow-hidden rounded-card border border-line bg-white transition hover:border-ink-700/40">
+<article class="group flex flex-col overflow-hidden rounded-card border border-line bg-card transition hover:border-ink-700/40">
   {
     build.images.length > 1 ? (
       <div class="border-b border-line" data-gallery>
@@ -22,7 +22,7 @@ const { build } = Astro.props;
           loading="lazy"
           class="aspect-[16/10] w-full object-cover object-top"
         />
-        <div class="flex gap-2 border-t border-line bg-paper p-2">
+        <div class="flex gap-2 overflow-x-auto border-t border-line bg-paper p-2">
           {build.images.map((img, i) => (
             <button
               type="button"
@@ -30,7 +30,7 @@ const { build } = Astro.props;
               data-alt={img.alt}
               aria-label={`Show screenshot: ${img.alt}`}
               class:list={[
-                "overflow-hidden rounded-md border transition",
+                "shrink-0 overflow-hidden rounded-md border transition",
                 i === 0 ? "border-accent-500" : "border-line opacity-60 hover:opacity-100",
               ]}
             >
@@ -56,9 +56,9 @@ const { build } = Astro.props;
         class="aspect-[16/10] w-full border-b border-line object-cover object-top"
       />
     ) : (
-      <div class="flex aspect-[16/10] w-full flex-col items-start justify-end border-b border-line bg-ink-950 p-6">
-        <p class="text-xs font-medium uppercase tracking-[0.15em] text-paper/40">{build.kicker}</p>
-        <p class="mt-2 font-display text-3xl text-paper">{build.name}</p>
+      <div class="flex aspect-[16/10] w-full flex-col items-start justify-end border-b border-line bg-panel p-6">
+        <p class="text-xs font-medium uppercase tracking-[0.15em] text-panel-fg/40">{build.kicker}</p>
+        <p class="mt-2 font-display text-3xl text-panel-fg">{build.name}</p>
       </div>
     )
   }

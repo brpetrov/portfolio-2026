@@ -7,16 +7,23 @@
 @import "@fontsource/inter/700.css";
 @import "@fontsource/inter/700-italic.css";
 
+/* Class-based dark mode: `.dark` on <html> (set by the header toggle). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
   DESIGN TOKENS — editorial, restrained, typography-led.
-  Warm paper background, near-black ink, one indigo accent used sparingly.
+  Semantic colours only; dark mode flips the variables below.
 */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-paper: #faf9f7;
-  --color-ink-950: #16181d;
+  --color-paper: #faf9f7; /* page background */
+  --color-card: #ffffff; /* raised surfaces */
+  --color-panel: #16181d; /* feature block — dark in both modes */
+  --color-panel-fg: #faf9f7;
+
+  --color-ink-950: #16181d; /* primary text */
   --color-ink-800: #2b2f36;
   --color-ink-700: #3d424b;
   --color-muted: #6a7078;
@@ -26,6 +33,25 @@
   --color-accent-500: #4f46e5;
 
   --radius-card: 0.875rem;
+}
+
+/* Dark mode — override the semantic variables. */
+.dark {
+  color-scheme: dark;
+
+  --color-paper: #0f1115;
+  --color-card: #161a21;
+  --color-panel: #0a0d13;
+  --color-panel-fg: #f1f2f4;
+
+  --color-ink-950: #f1f2f4;
+  --color-ink-800: #d7dade;
+  --color-ink-700: #b9bec7;
+  --color-muted: #8b93a0;
+  --color-line: #262b34;
+
+  --color-accent-600: #8b95f6;
+  --color-accent-500: #7c86f0;
 }
 
 html {

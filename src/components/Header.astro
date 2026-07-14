@@ -7,8 +7,9 @@ import Icon from "./Icon.astro";
   <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
     <a href="#top" class="text-lg font-semibold tracking-tight text-ink-950">Boyan Petrov</a>
 
-    <nav class="flex items-center gap-5 text-sm font-medium text-ink-700 sm:gap-7">
+    <nav class="flex items-center gap-5 text-sm font-medium text-ink-700 sm:gap-6">
       <a href="#work" class="hidden hover:text-ink-950 sm:inline">Work</a>
+      <a href="#side-projects" class="hidden hover:text-ink-950 md:inline">Side projects</a>
       <a href="#experience" class="hidden hover:text-ink-950 sm:inline">Experience</a>
       <a href="#skills" class="hidden hover:text-ink-950 sm:inline">Skills</a>
       <a href="#contact" class="hover:text-ink-950">Contact</a>
@@ -30,6 +31,22 @@ import Icon from "./Icon.astro";
       >
         <Icon name="linkedin" size={19} />
       </a>
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch between light and dark mode"
+        class="cursor-pointer text-ink-700 transition hover:text-ink-950"
+      >
+        <span class="dark:hidden"><Icon name="moon" size={19} /></span>
+        <span class="hidden dark:inline"><Icon name="sun" size={19} /></span>
+      </button>
     </nav>
   </div>
 </header>
+
+<script>
+  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    const dark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  });
+</script>
