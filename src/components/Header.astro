@@ -14,7 +14,9 @@ const navItems = [
 <!-- Solid background on mobile (backdrop-blur judders on mobile scroll); blur on sm+. -->
 <header class="sticky top-0 z-50 transform-gpu border-b border-line bg-paper sm:bg-paper/90 sm:backdrop-blur">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
-    <a href="#top" class="text-lg font-semibold tracking-tight text-ink-950">Boyan Petrov</a>
+    <a href="#top" class="group text-lg font-semibold tracking-tight text-ink-950">
+      Boyan Petrov<span class="inline-block font-bold text-accent-600 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:scale-125">.</span>
+    </a>
 
     <nav class="flex items-center gap-5 text-sm font-medium text-ink-700 sm:gap-6">
       {
